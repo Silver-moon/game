@@ -11,7 +11,10 @@ namespace game
         public static List<List<int>> Line = new List<List<int>>();
         public static int GameCount = 1;
         public static List<string> GameMsg = new List<string>();
-        //初始化
+        
+        /// <summary>
+        /// 初始化
+        /// </summary>
         public GameMatchRecor()
         {
             if (Line.Count < 1)
@@ -27,7 +30,9 @@ namespace game
             
         }
 
-        //重置
+        /// <summary>
+        /// 重置
+        /// </summary>
         public static void ReSet() 
         {
             Line.Clear();
@@ -36,6 +41,11 @@ namespace game
             GameMsg.Clear();
         }
 
+
+        /// <summary>
+        /// 获取状态
+        /// </summary>
+        /// <returns></returns>
         public static string GameState()
         {
             string res = "";
@@ -52,6 +62,10 @@ namespace game
         
         }
 
+        /// <summary>
+        /// 判断是否结束
+        /// </summary>
+        /// <returns></returns>
         public static bool IsEnd() 
         {
             return Line.All(f => f.Count == 0);

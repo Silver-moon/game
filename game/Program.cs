@@ -13,6 +13,7 @@ namespace game
             Console.WriteLine("火柴游戏");
             List<GamePlay> gameplays = new List<GamePlay>();
 
+            //初始化
             for (int i = 1; i <=2; i++)
             {
                 GamePlay gp = new GamePlay() { Name = $"玩家{i}" };
@@ -69,6 +70,7 @@ namespace game
                     continue;
                 }     
 
+                //切换玩家
                 if (currplay == gameplays[0])
                 {
                     currplay = gameplays[1];
