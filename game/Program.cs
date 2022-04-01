@@ -8,7 +8,7 @@ namespace game
         static void Main(string[] args)
         {
 
-            GamePlay CurrPlay;
+            GamePlay currplay;
 
             Console.WriteLine("火柴游戏");
             List<GamePlay> gameplays = new List<GamePlay>();
@@ -18,7 +18,7 @@ namespace game
                 GamePlay gp = new GamePlay() { Name = $"玩家{i}" };
                 gameplays.Add(gp);
             }
-            CurrPlay = gameplays[0];
+            currplay = gameplays[0];
 
 
             //Console.WriteLine("游戏开始");
@@ -27,7 +27,7 @@ namespace game
             {
                 Console.WriteLine("当前火柴状态");
                 Console.WriteLine(GameMatchRecor.GameState());
-                Console.WriteLine($"现在是第{GameMatchRecor.GameCount}回合，请{CurrPlay.Name}请输入Row_Count");
+                Console.WriteLine($"现在是第{GameMatchRecor.GameCount}回合，请{currplay.Name}请输入Row_Count");
 
                 var row_count = Console.ReadLine();
                 int row = 0;
@@ -37,7 +37,7 @@ namespace game
 
                 if (int.TryParse(row_count_split[0], out row) && int.TryParse(row_count_split[1], out count))
                 {
-                    if (!CurrPlay.Action(row, count, out msg)) 
+                    if (!currplay.Action(row, count, out msg)) 
                     {
                         Console.WriteLine(msg);
                     }
@@ -50,7 +50,7 @@ namespace game
                         {
                             Console.WriteLine(item);
                         }
-                        Console.WriteLine($"很遗憾{ CurrPlay.Name}输了 请再接再厉");
+                        Console.WriteLine($"很遗憾{ currplay.Name}输了 请再接再厉");
                         Console.WriteLine("扣1234再可再来一局，否则结束游戏");
                         var IsRes = Console.ReadLine();
                         if (IsRes == "1234")
@@ -65,16 +65,17 @@ namespace game
                 }
                 else 
                 {
+                    Console.WriteLine("请输入正确的格式Row_Count");
                     continue;
                 }     
 
-                if (CurrPlay == gameplays[0])
+                if (currplay == gameplays[0])
                 {
-                    CurrPlay = gameplays[1];
+                    currplay = gameplays[1];
                 }
                 else
                 {
-                    CurrPlay = gameplays[0];
+                    currplay = gameplays[0];
                 }
                 GameMatchRecor.GameCount += 1;
 
