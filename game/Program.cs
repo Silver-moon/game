@@ -47,7 +47,7 @@ namespace game
                         Console.WriteLine($"游戏结束");
                         Console.WriteLine("游戏小计");
                         foreach (var item in GameMatchRecor.GameMsg)
-                        {
+                        {  
                             Console.WriteLine(item);
                         }
                         Console.WriteLine($"很遗憾{ currplay.Name}输了 请再接再厉");
